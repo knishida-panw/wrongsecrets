@@ -32,6 +32,10 @@ data "azurerm_client_config" "current" {}
 resource "azurerm_resource_group" "default" {
   name     = "owasp-wrongsecrets"
   location = var.region
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 
@@ -62,4 +66,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   }
 
   role_based_access_control_enabled = true
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }

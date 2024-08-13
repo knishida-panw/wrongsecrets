@@ -28,4 +28,8 @@ resource "google_storage_bucket" "state_bucket" {
   versioning {
     enabled = true
   }
+  labels = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }

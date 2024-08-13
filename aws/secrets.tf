@@ -5,6 +5,10 @@
 resource "aws_secretsmanager_secret" "secret" {
   name                    = "wrongsecret"
   recovery_window_in_days = 0
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "secret" {
@@ -49,6 +53,10 @@ POLICY
 resource "aws_secretsmanager_secret" "secret_2" {
   name                    = "wrongsecret-2"
   recovery_window_in_days = 0
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 resource "aws_secretsmanager_secret_policy" "policy_2" {
@@ -94,5 +102,9 @@ resource "aws_ssm_parameter" "secret" {
     ignore_changes = [
       value
     ]
+  }
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
   }
 }

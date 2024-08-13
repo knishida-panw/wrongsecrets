@@ -7,6 +7,10 @@ resource "google_secret_manager_secret" "wrongsecret_1" {
   replication {
     automatic = true
   }
+  labels = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 resource "google_secret_manager_secret_iam_member" "wrongsecret_1_member" {
@@ -38,6 +42,10 @@ resource "google_secret_manager_secret" "wrongsecret_2" {
   replication {
     automatic = true
   }
+  labels = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 resource "google_secret_manager_secret_iam_member" "wrongsecret_2_member" {
@@ -55,6 +63,10 @@ resource "google_secret_manager_secret" "wrongsecret_3" {
   secret_id = "wrongsecret-3"
   replication {
     automatic = true
+  }
+  labels = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
   }
 }
 
