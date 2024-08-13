@@ -122,5 +122,7 @@ module "eks" {
   tags = {
     Environment = "test"
     Application = "wrongsecrets"
+    git_org     = "knishida-panw"
+    git_repo    = "wrongsecrets"
   }
 }

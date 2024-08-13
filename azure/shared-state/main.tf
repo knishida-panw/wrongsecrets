@@ -25,6 +25,10 @@ provider "azurerm" {
 resource "azurerm_resource_group" "default" {
   name     = "owasp-wrongsecrets"
   location = var.region
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 
@@ -47,6 +51,10 @@ resource "azurerm_storage_account" "account" {
   location                 = azurerm_resource_group.default.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 

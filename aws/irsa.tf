@@ -8,6 +8,10 @@ resource "aws_iam_role" "irsa_role" {
   name = "wrongsecrets-secret-manager"
 
   assume_role_policy = data.aws_iam_policy_document.assume_role_with_oidc.json
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 data "aws_iam_policy_document" "assume_role_with_oidc" {
@@ -41,6 +45,10 @@ resource "aws_iam_policy" "secret_manager" {
   name_prefix = "secret-manager"
   description = "EKS secret manager policy for cluster ${module.eks.cluster_name}"
   policy      = data.aws_iam_policy_document.secret_manager.json
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 data "aws_iam_policy_document" "secret_manager" {
@@ -72,6 +80,10 @@ resource "aws_iam_role" "user_role" {
   name = "cant-read-secrets"
 
   assume_role_policy = data.aws_iam_policy_document.user_assume_role.json
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 data "aws_iam_policy_document" "user_assume_role" {
@@ -94,6 +106,10 @@ resource "aws_iam_policy" "secret_deny" {
   name_prefix = "secret-deny"
   description = "Deny secrets manager and SSM"
   policy      = data.aws_iam_policy_document.user_policy.json
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 data "aws_iam_policy_document" "user_policy" {

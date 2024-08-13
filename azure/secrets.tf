@@ -23,6 +23,10 @@ resource "azurerm_key_vault" "vault" {
 
   soft_delete_retention_days = 7
   purge_protection_enabled   = false
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 # Needed for user permissions
@@ -60,6 +64,10 @@ resource "azurerm_key_vault_secret" "wrongsecret_1" {
   depends_on = [
     azurerm_key_vault_access_policy.user
   ]
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 #########################
@@ -80,6 +88,10 @@ resource "azurerm_key_vault_secret" "wrongsecret_2" {
   depends_on = [
     azurerm_key_vault_access_policy.user
   ]
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 #########################
@@ -100,6 +112,10 @@ resource "azurerm_key_vault_secret" "wrongsecret_3" {
   depends_on = [
     azurerm_key_vault_access_policy.user
   ]
+  tags = {
+    git_org  = "knishida-panw"
+    git_repo = "wrongsecrets"
+  }
 }
 
 # With Azure key vault, you grant access per vault instead of per secret. Below is a bad idea if these workloads should
